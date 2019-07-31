@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css'
+import Navbar from './components/Navbar'
 import Header from './components/Header';
 import Description from './components/Description'
 import Details from './components/Details'
@@ -13,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+          <Navbar></Navbar>
           <Header>{data}</Header>
           <Description>{data}</Description>
           <Details>{data}</Details>
