@@ -21,6 +21,7 @@ const detailsLists = {
 const listSnippets = {
   color: '#fff',
   padding: '10px',
+  marginRight: '1em',
   flex: 1
 }
 

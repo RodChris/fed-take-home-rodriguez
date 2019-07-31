@@ -2,84 +2,80 @@ import React from 'react'
 
 import './Details.css';
 
-const sectionDetails = {
-  background: '#333',
-  color: '#fff',
-  alignItems: 'center',
-  padding: '20px',
-  display: 'grid',
-  gridTemplateColumns: '5fr 3fr',
+const episodeHeaderStyle = {
+    background: '#333',
+    color: '#fff',
+    textAlign: 'center',
+    padding: '20px 10px'
 }
 
-const detailsLists = {
-  border: "5px solid #fff",
-  color: '#fff',
-  padding: '10px',
-  display: 'flex'
+const sectionEpisodes = {
+    background: '#333',
+    color: '#fff',
+    alignItems: 'center',
+    padding: '20px',
+    display: 'grid',
+    gridTemplateColumns: '2fr 2fr',
+    gridGap: '1em',
+    gridAutoRows: 'minmax( auto)'
 }
 
-const listSnippets = {
-  color: '#fff',
-  padding: '10px',
-  flex: 1
+const listSeasonOneEp = {
+    border: "5px solid #fff",
+    color: '#fff',
+    padding: '15px',
+    margin: '1em'
+  }
+  
+const listSeasonTwoEp = {
+    border: "5px solid #fff",
+    color: '#fff',
+    padding: '15px',
+    margin: '1em'
 }
-
-const listLocations = {
-  color: '#fff',
-  padding: '10px',
-  flex: 1
-}
-
-const detailsVideo = {
-  color: '#000',
-  alignItems: 'center',
-  padding: '10px 100px',
-} 
 
 function episodes(props) {
 
-  const snippets = (props.children.snippets)
-        .map(igKey => {
+    const seasonOneEpisodes = Object.keys(props.children["episode-list"])
+    .map(igKey => {
+        if(props.children["episode-list"][igKey].season === 1) {
             return (
-                <li key={igKey}>
-                    <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.children.snippets[igKey]}
-                </li> 
-            )                
-        });
+                <div key={igKey}>
+                    <p>{props.children["episode-list"][igKey].name}</p> 
+                </div> 
+            )      
+        } else return
+                  
+    });
 
-  const locations = (props.children.locations)
-        .map(igKey => {
+    const seasonTwoEpisodes = Object.keys(props.children["episode-list"])
+    .map(igKey => {
+        if(props.children["episode-list"][igKey].season === 2) {
             return (
-                <li key={igKey} style={{marginBottom: '10px'}}>
-                    <span style={{textTransform: 'capitalize', marginBottom: '100px'}}>{igKey}</span>: {props.children.locations[igKey]}
-                </li> 
-            )                
-        });
+                <div key={igKey}>
+                    <p>{props.children["episode-list"][igKey].name}</p> 
+                </div> 
+            )      
+        } else return
+                  
+    });
 
   return (
     <React.Fragment>
-      <section style={sectionDetails}>
-        <div style={detailsLists}>
-          <div style={listSnippets}>
-            <h4>Fun Facts:</h4>
-            <ul>
-                {snippets}
-            </ul>
-          </div>
-          <div style={listLocations}>
-            <h4>Locations:</h4>
-            <ul>
-                {locations}
-            </ul>
-          </div>
-            
+      <header style={episodeHeaderStyle}>
+            <h1>Episodes</h1>
+      </header>
+      <section style={sectionEpisodes}>
+        <div style={listSeasonOneEp}>
+            <h2>Season One:</h2>
+            {seasonOneEpisodes}
         </div>
-        <div style={detailsVideo}>
-          <iframe title="myFrame" width="500" height="300" src={props.children["video-embed"]}>
-            
-          </iframe>
+        <div style={listSeasonTwoEp}>
+            <h2>Season Two:</h2>
+            {seasonTwoEpisodes}
         </div>
-    </section>
+        
+      </section>
   </React.Fragment>
   )
 }
