@@ -31,24 +31,12 @@ const listLocations = {
 }
 
 const detailsVideo = {
+  color: '#000',
+  alignItems: 'center',
   padding: '10px 100px',
 } 
 
-const quoteText = {
-  font: 'italic',
-  color: '#fff',
-  alignItems: 'center',
-  padding: '1px',
-} 
-
-const quoteAuthor = {
-  font: 'bold',
-  color: '#fff',
-  alignItems: 'center',
-  padding: '5px 0px 10px 0px',
-} 
-
-function details(props) {
+function episodes(props) {
 
   const snippets = (props.children.snippets)
         .map(igKey => {
@@ -87,13 +75,13 @@ function details(props) {
             
         </div>
         <div style={detailsVideo}>
-          <p style={quoteText}>"{props.children.quote.text}"</p>
-          <p style={quoteAuthor}>- {props.children.quote.author}</p>
-          <iframe title="myFrame" width="500" height="300" src={props.children["video-embed"]}></iframe>
+          <iframe title="myFrame" width="500" height="300" src={props.children["video-embed"]}>
+            
+          </iframe>
         </div>
     </section>
   </React.Fragment>
   )
 }
 
-export default details;
+export default episodes;
