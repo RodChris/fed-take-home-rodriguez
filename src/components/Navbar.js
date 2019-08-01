@@ -20,7 +20,7 @@ const navbarInner = {
 }
 
 const navbarLogo = {
-    padding: '0 1rem'
+    padding: '0 2rem'
 }
 
 const navbarLogoLink = {

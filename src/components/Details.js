@@ -19,7 +19,12 @@ const detailsLists = {
   border: "5px solid #fff",
   color: '#fff',
   padding: '10px',
-  display: 'flex'
+  display: 'flex',
+  width: '85%',
+  margin: 'auto',
+  '@media (min-width: 1280px)' : {
+    width: 'auto'
+  }
 }
 
 const listSnippets = {
