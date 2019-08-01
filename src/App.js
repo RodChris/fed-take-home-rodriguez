@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radium, { StyleRoot } from 'radium'
 
 import './App.css'
 import Navbar from './components/Navbar'
@@ -8,20 +9,20 @@ import Details from './components/Details'
 import Gallery from './components/Gallery'
 import Episodes from './components/Episodes'
 
-import data from './data/en_US.json'
-import data2 from './data/la_PG.json'
+import dataEN from './data/en_US.json'
+import dataPG from './data/la_PG.json'
 
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
+      <StyleRoot>
           <Navbar />
-          <Header>{data}</Header>
-          <Description>{data}</Description>
-          <Details>{data}</Details>
-          <Gallery>{data}</Gallery>
-          <Episodes>{data}</Episodes>
-      </React.Fragment>
+          <Header data={dataEN}></Header>
+          <Description data={dataEN}></Description>
+          <Details data={dataEN}></Details>
+          <Gallery data={dataEN}></Gallery>
+          <Episodes data={dataEN}></Episodes>
+      </StyleRoot>
     );
   }
 }

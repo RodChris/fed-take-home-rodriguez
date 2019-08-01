@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 import './Description.css';
 
@@ -15,7 +16,10 @@ const sectionGallery = {
   alignItems: 'center',
   padding: '20px',
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
+  gridTemplateColumns: '1fr',
+  '@media (min-width: 1280px)' : {
+    gridTemplateColumns: '1fr 1fr',
+  }
 }
 
 const galleryImage = {
@@ -34,12 +38,12 @@ const galleryText = {
 
 function gallery(props) {
 
-    const images = Object.keys(props.children.gallery)
+    const images = Object.keys(props.data.gallery)
         .map(igKey => {
             return (
                 <div key={igKey} style={galleryImage}>
-                    <img src={props.children.gallery[igKey].src} height="400" width="600" alt='logo' />
-                    <p style={galleryText}>{props.children.gallery[igKey].text}</p> 
+                    <img src={props.data.gallery[igKey].src} height="400" width="600" alt='logo' />
+                    <p style={galleryText}>{props.data.gallery[igKey].text}</p> 
                 </div> 
             )                
         });
@@ -58,4 +62,4 @@ function gallery(props) {
   )
 }
 
-export default gallery;
+export default Radium(gallery);

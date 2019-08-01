@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 import './Description.css';
 import logo from '../img/stranger-things_raw.png'
@@ -9,7 +10,10 @@ const sectionDescription = {
   alignItems: 'center',
   padding: '20px',
   display: 'grid',
-  gridTemplateColumns: '1fr 2fr',
+  gridTemplateColumns: '1fr',
+  '@media (min-width: 768px)' : {
+    gridTemplateColumns: '1fr 2fr'
+  }
 }
 
 const detailsLogo = {
@@ -36,7 +40,7 @@ function description(props) {
           </div>
           <div style={detailsDescription}>
               <p>
-                {props.children.description}
+                {props.data.description}
               </p>
           </div>
       </section>
@@ -44,4 +48,4 @@ function description(props) {
   )
 }
 
-export default description;
+export default Radium(description);

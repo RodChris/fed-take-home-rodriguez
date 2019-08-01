@@ -15,8 +15,8 @@ const headerStyle = {
 const Header = (props) => {
   return (
     <header style={headerStyle}>
-      <h1 className="header-text">
-        {props.children.heading}
+      <h1 className="header">
+        {props.data.heading}
       </h1>
     </header>
   )

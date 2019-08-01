@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 import './Details.css';
 
@@ -8,7 +9,10 @@ const sectionDetails = {
   alignItems: 'center',
   padding: '20px',
   display: 'grid',
-  gridTemplateColumns: '5fr 3fr',
+  gridTemplateColumns: '1fr',
+  '@media (min-width: 1280px)' : {
+    gridTemplateColumns: '5fr 3fr',
+  }
 }
 
 const detailsLists = {
@@ -33,6 +37,10 @@ const listLocations = {
 
 const detailsVideo = {
   padding: '10px 100px',
+  margin: 'auto',
+  '@media (min-width: 1280px)' : {
+     margin: 'none',
+  }
 } 
 
 const quoteText = {
@@ -51,20 +59,20 @@ const quoteAuthor = {
 
 function details(props) {
 
-  const snippets = (props.children.snippets)
+  const snippets = (props.data.snippets)
         .map(igKey => {
             return (
                 <li key={igKey}>
-                    <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.children.snippets[igKey]}
+                    <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.data.snippets[igKey]}
                 </li> 
             )                
         });
 
-  const locations = (props.children.locations)
+  const locations = (props.data.locations)
         .map(igKey => {
             return (
                 <li key={igKey} style={{marginBottom: '10px'}}>
-                    <span style={{textTransform: 'capitalize', marginBottom: '100px'}}>{igKey}</span>: {props.children.locations[igKey]}
+                    <span style={{textTransform: 'capitalize', marginBottom: '100px'}}>{igKey}</span>: {props.data.locations[igKey]}
                 </li> 
             )                
         });
@@ -88,13 +96,13 @@ function details(props) {
             
         </div>
         <div style={detailsVideo}>
-          <p style={quoteText}>"{props.children.quote.text}"</p>
-          <p style={quoteAuthor}>- {props.children.quote.author}</p>
-          <iframe title="myFrame" width="500" height="300" src={props.children["video-embed"]}></iframe>
+          <p style={quoteText}>"{props.data.quote.text}"</p>
+          <p style={quoteAuthor}>- {props.data.quote.author}</p>
+          <iframe title="myFrame" width="500" height="300" src={props.data["video-embed"]}></iframe>
         </div>
     </section>
   </React.Fragment>
   )
 }
 
-export default details;
+export default Radium(details);

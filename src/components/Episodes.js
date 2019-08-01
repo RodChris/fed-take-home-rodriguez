@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 import './Details.css';
 
@@ -15,9 +16,12 @@ const sectionEpisodes = {
     alignItems: 'center',
     padding: '20px',
     display: 'grid',
-    gridTemplateColumns: '2fr 2fr',
+    gridTemplateColumns: '1fr',
     gridGap: '1em',
-    gridAutoRows: 'minmax( auto)'
+    gridAutoRows: 'minmax( auto)',
+    '@media (min-width: 1024px)' : {
+        gridTemplateColumns: '2fr 2fr',
+      }
 }
 
 const listSeasonOneEp = {
@@ -36,24 +40,26 @@ const listSeasonTwoEp = {
 
 function episodes(props) {
 
-    const seasonOneEpisodes = Object.keys(props.children["episode-list"])
+    const seasonOneEpisodes = Object.keys(props.data["episode-list"])
     .map(igKey => {
-        if(props.children["episode-list"][igKey].season === 1) {
+        if(props.data["episode-list"][igKey].season === 1) {
             return (
-                <div key={igKey}>
-                    <p>{props.children["episode-list"][igKey].name}</p> 
+                <div key={igKey} style={{marginBottom: '2.5em'}}>
+                    <p>{props.data["episode-list"][igKey].name}</p>
+                    <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
                 </div> 
             )      
         } else return
                   
     });
 
-    const seasonTwoEpisodes = Object.keys(props.children["episode-list"])
+    const seasonTwoEpisodes = Object.keys(props.data["episode-list"])
     .map(igKey => {
-        if(props.children["episode-list"][igKey].season === 2) {
+        if(props.data["episode-list"][igKey].season === 2) {
             return (
-                <div key={igKey}>
-                    <p>{props.children["episode-list"][igKey].name}</p> 
+                <div key={igKey} style={{marginBottom: '2.5em'}}>
+                    <p>{props.data["episode-list"][igKey].name}</p> 
+                    <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
                 </div> 
             )      
         } else return
@@ -80,4 +86,4 @@ function episodes(props) {
   )
 }
 
-export default episodes;
+export default Radium(episodes);
