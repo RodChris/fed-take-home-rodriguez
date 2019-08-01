@@ -3,7 +3,10 @@ import React from 'react'
 import './Header.css'
 
 const headerStyle = {
-  background: '#333',
+  position: 'sticky',
+  width: '100%',
+  top: '60px',
+  background: '#2a2a2a',
   color: '#fff',
   textAlign: 'center',
   padding: '10px'

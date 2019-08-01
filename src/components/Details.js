@@ -3,7 +3,7 @@ import React from 'react'
 import './Details.css';
 
 const sectionDetails = {
-  background: '#333',
+  background: '#696969',
   color: '#fff',
   alignItems: 'center',
   padding: '20px',

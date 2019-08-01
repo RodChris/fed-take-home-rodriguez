@@ -30,7 +30,7 @@ function description(props) {
 
   return (
     <React.Fragment>
-      <section style={sectionDescription}>
+      <section id='inspiration' style={sectionDescription}>
           <div style={detailsLogo}>
               <img src={logo} alt='logo' />
           </div>

@@ -9,12 +9,13 @@ import Gallery from './components/Gallery'
 import Episodes from './components/Episodes'
 
 import data from './data/en_US.json'
+import data2 from './data/la_PG.json'
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-          <Navbar></Navbar>
+          <Navbar />
           <Header>{data}</Header>
           <Description>{data}</Description>
           <Details>{data}</Details>
