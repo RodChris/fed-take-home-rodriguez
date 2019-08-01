@@ -37,7 +37,10 @@ const listSnippets = {
 const listLocations = {
   color: '#fff',
   padding: '10px',
-  flex: 1
+  flex: 1,
+  '@media (min-width: 1280px)' : {
+    marginLeft: '3em'
+  }
 }
 
 const detailsVideo = {

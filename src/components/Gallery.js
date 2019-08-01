@@ -50,7 +50,7 @@ function gallery(props) {
 
   return (
     <React.Fragment>
-        <header style={galleryHeaderStyle}>
+        <header id='gallery' style={galleryHeaderStyle}>
             <h1 className="header-text">
                 Gallery
             </h1>

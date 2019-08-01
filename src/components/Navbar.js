@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Link } from 'react-scroll'
 import './Navbar.css'
 
 const navbarHeader = {
@@ -40,7 +39,34 @@ const listGroup = {
 }
 
 const listItem = {
-    flex: 1
+    margin: '0px 1.5em',
+    flex: 1,
+
+}
+
+const navbarLink = {
+    textDecoration: 'none',
+    fontWeight: 'bold',
+    color: "white",
+    ':hover': {
+        color: 'darkBlue',
+      }
+
+}
+
+const navbarSelect = {
+    display: 'flex',
+    marginLeft: 'auto',
+    marginRight: '2em'
+}
+
+const selectText = {
+    marginRight: '2em'
+}
+
+const selectInput = {
+    height: '2em',
+    margin: 'auto'
 }
 
 const Navbar = (props) => {
@@ -52,34 +78,17 @@ const Navbar = (props) => {
             </div>
             <div style={navbarItems}>
                 <ul style={listGroup}>
-                <li style={listItem}>Inspiration</li>
-                <li style={listItem}>Gallery</li>
-                <li style={listItem}>Episodes</li>
-                    {/* <Link
-                        activeClass="active"
-                        to="inspiration"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration= {500}>
-                    </Link>
-                    <Link
-                        activeClass="active"
-                        to="inspiration"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration= {500}> 
-                    </Link>
-                    <Link
-                        activeClass="active"
-                        to="inspiration"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration= {500}>
-                    </Link>           */}
+                    <li style={listItem}><a href="#" style={navbarLink} key='1'>Home</a></li>
+                    <li style={listItem}><a href="#" style={navbarLink} key='2'>Login</a></li>
+                    <li style={listItem}><a href="#" style={navbarLink} key='3'>About</a></li>        
                 </ul>
+            </div>
+            <div style={navbarSelect}>
+                <p style={selectText}>Select Language:</p>
+                <select style={selectInput}>
+                    <option value="en">English</option>
+                    <option value="pg">Pig Latin</option>
+                </select>
             </div>
         </nav>
       

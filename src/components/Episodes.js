@@ -78,7 +78,7 @@ function episodes(props) {
 
   return (
     <React.Fragment>
-      <header style={episodeHeaderStyle}>
+      <header style={episodeHeaderStyle} id='episodes'>
             <h1>Episodes</h1>
       </header>
       <section style={sectionEpisodes}>
