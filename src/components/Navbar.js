@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 import './Navbar.css'
 
@@ -49,7 +50,7 @@ const navbarLink = {
     fontWeight: 'bold',
     color: "white",
     ':hover': {
-        color: 'darkBlue',
+        color: 'teal',
       }
 
 }
@@ -101,4 +102,4 @@ const Navbar = (props) => {
     )
 }
 
-export default Navbar;
+export default Radium(Navbar);
