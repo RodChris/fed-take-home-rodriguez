@@ -13,15 +13,29 @@ import dataEN from './data/en_US.json'
 import dataPG from './data/la_PG.json'
 
 class App extends Component {
+  state = {
+    data: dataEN
+  }
+
+  onNav(newData) {
+    if(newData === 'dataEN') {
+      this.setState({ data: dataEN }) 
+    }
+
+    if(newData === 'dataPG') {
+      this.setState({ data: dataPG }) 
+    }
+  }
+
   render() {
     return (
       <StyleRoot>
-          <Navbar />
-          <Header data={dataEN}></Header>
-          <Description data={dataEN}></Description>
-          <Details data={dataEN}></Details>
-          <Gallery data={dataEN}></Gallery>
-          <Episodes data={dataEN}></Episodes>
+          <Navbar onChange={this.onNav.bind(this)}/>
+          <Header data={this.state.data}></Header>
+          <Description data={this.state.data}></Description>
+          <Details data={this.state.data}></Details>
+          <Gallery data={this.state.data}></Gallery>
+          <Episodes data={this.state.data}></Episodes>
       </StyleRoot>
     );
   }

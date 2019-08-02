@@ -38,8 +38,10 @@ const galleryText = {
 
 function gallery(props) {
 
-    const images = Object.keys(props.data.gallery)
+    if (props.data.gallery) {
+        var images = Object.keys(props.data.gallery)
         .map(igKey => {
+            
             return (
                 <div key={igKey} style={galleryImage}>
                     <img src={props.data.gallery[igKey].src} height="400" width="600" alt='logo' />
@@ -47,6 +49,8 @@ function gallery(props) {
                 </div> 
             )                
         });
+    }
+   
 
   return (
     <React.Fragment>

@@ -50,31 +50,42 @@ const episodeLink = {
 
 function episodes(props) {
 
-    const seasonOneEpisodes = Object.keys(props.data["episode-list"])
-    .map(igKey => {
-        if(props.data["episode-list"][igKey].season === 1) {
-            return (
-                <div key={igKey} style={{marginBottom: '2.5em'}}>
-                    <a href="#" style={episodeLink} key={igKey}>{props.data["episode-list"][igKey].name}</a>
-                    <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
-                </div> 
-            )      
-        } else return
-                  
-    });
+    if ((props.data["episode-list"])) {
+        var seasonOneEpisodes = Object.keys(props.data["episode-list"])
+        .map(igKey => {
+            if(props.data["episode-list"][igKey].season === 1) {
+                return (
+                    <div key={igKey} style={{marginBottom: '2.5em'}}>
+                        <a href="#" style={episodeLink} key={igKey}>{props.data["episode-list"][igKey].name}</a>
+                        <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
+                    </div> 
+                )      
+            } 
+            if (window.UndefinedVariable) {
+                
+                Object.assign(window.UndefinedVariable, {})
+            }
+                    
+        });
 
-    const seasonTwoEpisodes = Object.keys(props.data["episode-list"])
-    .map(igKey => {
-        if(props.data["episode-list"][igKey].season === 2) {
-            return (
-                <div key={igKey} style={{marginBottom: '2.5em'}}>
-                    <a href="#" style={episodeLink} key={igKey}>{props.data["episode-list"][igKey].name}</a>
-                    <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
-                </div> 
-            )      
-        } else return
-                  
-    });
+        var seasonTwoEpisodes = Object.keys(props.data["episode-list"])
+        .map(igKey => {
+            if(props.data["episode-list"][igKey].season === 2) {
+                return (
+                    <div key={igKey} style={{marginBottom: '2.5em'}}>
+                        <a href="#" style={episodeLink} key={igKey}>{props.data["episode-list"][igKey].name}</a>
+                        <p>Rating: {props.data["episode-list"][igKey].rating} / 10</p> 
+                    </div> 
+                )      
+            } 
+            if (window.UndefinedVariable) {
+                
+                Object.assign(window.UndefinedVariable, {})
+            }
+                    
+        });
+    }
+    
 
   return (
     <React.Fragment>

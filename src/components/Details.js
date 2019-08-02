@@ -67,7 +67,8 @@ const quoteAuthor = {
 
 function details(props) {
 
-  const snippets = (props.data.snippets)
+  if (props.data.snippets) {
+    var snippets = (props.data.snippets)
         .map(igKey => {
             return (
                 <li key={igKey}>
@@ -75,15 +76,32 @@ function details(props) {
                 </li> 
             )                
         });
+  }
+  
+  if (props.data.locations) {
+    var locations = (props.data.locations)
+    .map(igKey => {
+        return (
+            <li key={igKey} style={{marginBottom: '10px'}}>
+                <span style={{textTransform: 'capitalize', marginBottom: '100px'}}>{igKey}</span>: {props.data.locations[igKey]}
+            </li> 
+        )                
+    });
+  }
 
-  const locations = (props.data.locations)
-        .map(igKey => {
-            return (
-                <li key={igKey} style={{marginBottom: '10px'}}>
-                    <span style={{textTransform: 'capitalize', marginBottom: '100px'}}>{igKey}</span>: {props.data.locations[igKey]}
-                </li> 
-            )                
-        });
+  if (props.data.quote.text !== null) {
+    var dataQuoteText = props.data.quote.text
+  }
+
+  if (props.data.quote.author !== null) {
+    var dataQuoteAuthor = props.data.quote.author
+  }
+
+  if (props.data["video-embed"] !== null) {
+    var dataVideo = props.data["video-embed"]
+  }
+
+  
 
   return (
     <React.Fragment>
@@ -104,9 +122,9 @@ function details(props) {
             
         </div>
         <div style={detailsVideo}>
-          <p style={quoteText}>"{props.data.quote.text}"</p>
-          <p style={quoteAuthor}>- {props.data.quote.author}</p>
-          <iframe title="myFrame" width="500" height="300" src={props.data["video-embed"]}></iframe>
+          <p style={quoteText}>"{dataQuoteText}"</p>
+          <p style={quoteAuthor}>- {dataQuoteAuthor}</p>
+          <iframe title="myFrame" width="500" height="300" src={dataVideo}></iframe>
         </div>
     </section>
   </React.Fragment>

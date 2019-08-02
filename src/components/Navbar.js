@@ -13,9 +13,9 @@ const navbarHeader = {
 }
 
 const navbarInner = {
-    display: 'flex',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
+    display: 'flex'
 }
 
 const navbarLogo = {
@@ -70,30 +70,35 @@ const selectInput = {
 }
 
 const Navbar = (props) => {
-  return (
-    <header style={navbarHeader}>
-        <nav style={navbarInner}>
-            <div style={navbarLogo}>
-                <a style={navbarLogoLink} href="/"><i>CoolShows</i></a>
-            </div>
-            <div style={navbarItems}>
-                <ul style={listGroup}>
-                    <li style={listItem}><a href="#" style={navbarLink} key='1'>Home</a></li>
-                    <li style={listItem}><a href="#" style={navbarLink} key='2'>Login</a></li>
-                    <li style={listItem}><a href="#" style={navbarLink} key='3'>About</a></li>        
-                </ul>
-            </div>
-            <div style={navbarSelect}>
-                <p style={selectText}>Select Language:</p>
-                <select style={selectInput}>
-                    <option value="en">English</option>
-                    <option value="pg">Pig Latin</option>
-                </select>
-            </div>
-        </nav>
-      
-    </header>
-  )
+    function handleClick(event) {
+        props.onChange(event.target.value)
+    }
+
+
+    return (
+        <header style={navbarHeader}>
+            <nav style={navbarInner}>
+                <div style={navbarLogo}>
+                    <a style={navbarLogoLink} href="/"><i>CoolShows</i></a>
+                </div>
+                <div style={navbarItems}>
+                    <ul style={listGroup}>
+                        <li style={listItem}><a href="#" style={navbarLink} key='1'>Home</a></li>
+                        <li style={listItem}><a href="#" style={navbarLink} key='2'>Login</a></li>
+                        <li style={listItem}><a href="#" style={navbarLink} key='3'>About</a></li>        
+                    </ul>
+                </div>
+                <div style={navbarSelect}>
+                    <p style={selectText}>Select Language:</p>
+                    <select style={selectInput} onChange={handleClick.bind(this)}>
+                        <option value="dataEN">English</option>
+                        <option value="dataPG">Pig Latin</option>
+                    </select>                   
+                </div>
+            </nav>
+        
+        </header>
+    )
 }
 
 export default Navbar;
